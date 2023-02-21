@@ -347,7 +347,7 @@ static inline void setbasepri(uint32_t basepri)
 static inline void raisebasepri(uint32_t basepri) inline_function;
 static inline void raisebasepri(uint32_t basepri)
 {
-  register uint32_t primask;
+  register uint32_t primask = 0;
 
   /* 1. Retain the previous value of the PRIMASK register,
    * 2  Disable all interrupts via the PRIMASK register.  NOTE:  They
