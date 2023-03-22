@@ -2032,7 +2032,7 @@ int fdcan_initialize(struct fdcan_driver_s *priv)
     }
 
 #ifdef CONFIG_STM32H7_FDCAN_REGDEBUG
-  const fdcan_bitseg *tim = &priv->arbi_timing;
+  const struct fdcan_bitseg *tim = &priv->arbi_timing;
   ninfo("[fdcan][arbi] Timings: presc=%u sjw=%u bs1=%u bs2=%u\r\n",
         tim->prescaler, tim->sjw, tim->bs1, tim->bs2);
 #endif
@@ -2056,9 +2056,9 @@ int fdcan_initialize(struct fdcan_driver_s *priv)
     }
 
 #ifdef CONFIG_STM32H7_FDCAN_REGDEBUG
-  const fdcan_bitseg *tim = &priv->data_timing;
+  const struct fdcan_bitseg *tim_fd = &priv->data_timing;
   ninfo("[fdcan][data] Timings: presc=%u sjw=%u bs1=%u bs2=%u\r\n",
-        tim->prescaler, tim->sjw, tim->bs1, tim->bs2);
+        tim_fd->prescaler, tim_fd->sjw, tim_fd->bs1, tim_fd->bs2);
 #endif
 
   /* Set bit timings and prescalers (Data bitrate) */
