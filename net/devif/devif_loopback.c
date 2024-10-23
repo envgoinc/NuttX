@@ -46,7 +46,7 @@
 
 static bool is_loopback(FAR struct net_driver_s *dev)
 {
-  if (dev->d_len > 0)
+  if (dev->d_len > 0 && IFF_IS_LOOPBACK(dev->d_flags))
     {
 #ifdef CONFIG_NET_IPv4
       if ((IPv4BUF->vhl & IP_VERSION_MASK) == IPv4_VERSION &&
